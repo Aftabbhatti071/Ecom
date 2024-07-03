@@ -1,0 +1,30 @@
+from django.urls import path
+from .views import *
+from payments.urls import *
+urlpatterns=[
+    path('index/', index, name='index'),
+    path('index/<int:id>', index, name='index'),
+    path('index_tablet/<int:id>', index_tablet, name='index_tablet'),
+    path('checkout_info/', checkout_info, name='checkout_info'),
+    path('product/', product , name='product'),
+    path('product/<int:id>', product , name='product_items'),
+    path('contact_us/', contact_us , name='contact_us'),
+    path('about_us/',about_us,name='about_us'),
+    path('index_inverse_header/', index_inverse_header , name='index_inverse_header'),
+    path('my_account/', my_account , name='my_account'),
+    path('product_details/', product_details, name='product_details'),
+    path('product_details/<int:id>/', product_details, name='product_info'),
+    path('search_results/', search_results , name='search_results'),
+    path('index_fixed_header/', index_fixed_header , name='index_fixed_header'),
+    path('faq/',faq , name='faq'),
+    path('checkout/',checkout_cart, name='checkout'),
+    path('checkout/<int:id>',checkout_cart, name='checkout_cart'),
+    path('delete_cart_item/<int:id>', delete_cart_item, name='delete_cart_item'),
+    path('increase-quantity/<int:id>/', increase_quantity, name='increase_quantity'),
+    path('decrease-quantity/<int:id>/', decrease_quantity, name='decrease_quantity'),
+    path('submit_review/<int:id>',submit_review,name='submit_review'),
+    path('checkout_payment/',checkout_payment,name='checkout_payment'),
+    path('checkout_complete/',checkout_complete, name='checkout_complete'),
+    path('pay/', payment_view, name='payment'),
+    path('success/', success_view, name='success'),
+]

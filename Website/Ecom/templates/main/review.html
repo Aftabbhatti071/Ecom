@@ -1,0 +1,32 @@
+<!-- templates/main/submit_review.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Review for {{ product.product_name }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Submit Review for {{ product.product_name }}</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <div>
+                    {% for i in "12345" %}
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="rating" id="rating{{i}}" value="{{i}}">
+                            <label class="form-check-label" for="rating{{i}}">{{i}}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment</label>
+                <textarea class="form-control" id="comment" name="comment" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+        </form>
+    </div>
+</body>
+</html>
